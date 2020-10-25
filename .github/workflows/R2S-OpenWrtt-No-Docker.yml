@@ -1,13 +1,10 @@
-name: R2S-OpenWrt-No-Docker
+name: R2S-OpenWrt-Without-Docker
 
 on:
-# schedule:
-#   - cron: 5 9 * * *
-# watch:
-#   types: started
-  push:
-    paths:
-      - 'CHANGELOG.md'
+  schedule:
+    - cron: 5 9 * * *
+  watch:
+    types: started
 
 jobs:
   build:
