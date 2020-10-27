@@ -1,10 +1,9 @@
-name: R2S-OpenWrt-Without-Docker
+name: R2S-OpenWrt-Docker
 
 on:
-  schedule:
-    - cron: 5 9 * * *
-  watch:
-    types: started
+  push:
+    paths:
+      - 'CHANGELOG.md'
 
 jobs:
   build:
@@ -66,7 +65,7 @@ jobs:
     - name: Make Config
       run: |
         cd openwrt
-        mv ../SEED/config_no_docker.seed .config
+        mv ../SEED/config_docker.seed .config
         make defconfig
         chmod -R 755 ./
     - name: Make Download
